@@ -156,24 +156,32 @@ const socialLinks = [
   { label: 'Instagram', icon: Instagram },
 ];
 
+const assetUrl = (fileName: string) => `${import.meta.env.BASE_URL}${fileName}`;
+
 const suggestionCards = [
   {
     label: 'Ofertas',
     title: 'Promocoes',
     href: 'https://start.bet.br/promotions',
-    image: '/sidebar-promotions.png',
+    image: assetUrl('sidebar-promotions.png'),
   },
   {
     label: 'Conteudo',
     title: 'Blog Start',
     href: 'https://startbetblog.com/',
-    image: '/sidebar-blog.png',
+    image: assetUrl('sidebar-blog.png'),
   },
   {
     label: 'Videos',
     title: 'YouTube da Start',
-    href: 'https://www.youtube.com/results?search_query=StartBet+oficial',
-    image: '/sidebar-youtube.png',
+    href: 'https://www.youtube.com/@StartBetOficial',
+    image: assetUrl('sidebar-youtube.png'),
+  },
+  {
+    label: 'Protecao',
+    title: 'Autoexclusao Centralizada',
+    href: 'https://www.gov.br/fazenda/pt-br/composicao/orgaos/secretaria-de-premios-e-apostas/autoexclusao',
+    image: assetUrl('sidebar-autoexclusao.png'),
   },
 ];
 
@@ -183,14 +191,14 @@ const destinationCards = [
     title: 'Sportsbook',
     description: 'Acompanhe mercados ao vivo, odds competitivas e grandes jogos em poucos cliques.',
     href: 'https://start.bet.br/sportsbook/Football/Brazil',
-    image: '/destination-sportsbook.png',
+    image: assetUrl('destination-sportsbook.png'),
   },
   {
     eyebrow: 'Jogos online',
     title: 'Cassino',
     description: 'Explore slots, roleta, cartas e experiencias de cassino com navegacao simples.',
     href: 'https://start.bet.br/casino',
-    image: '/destination-casino.png',
+    image: assetUrl('destination-casino.png'),
   },
 ];
 
@@ -263,7 +271,7 @@ const openZendeskChat = () => {
       <div class="mx-auto flex max-w-7xl flex-col gap-10 px-5 py-6 sm:px-8 lg:px-10">
         <header class="flex flex-wrap items-center justify-between gap-4">
           <a href="#" class="inline-flex items-center" aria-label="Start">
-            <img class="h-11 w-auto sm:h-12" src="/start-logo.png" alt="Start" />
+            <img class="h-11 w-auto sm:h-12" :src="assetUrl('start-logo.png')" alt="Start" />
           </a>
 
           <nav class="flex flex-wrap items-center gap-2 text-sm font-bold text-white/86">
@@ -589,7 +597,7 @@ const openZendeskChat = () => {
           <section class="rounded-lg border border-white/10 bg-start-surface/42 p-6 shadow-soft">
             <div class="flex flex-col gap-6 xl:flex-row xl:items-start xl:justify-between">
               <div>
-                <img class="h-12 w-auto" src="/start-logo.png" alt="Start" />
+                <img class="h-12 w-auto" :src="assetUrl('start-logo.png')" alt="Start" />
                 <div class="mt-5 flex flex-wrap gap-2">
                   <a
                     v-for="social in socialLinks"
