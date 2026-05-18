@@ -9,7 +9,6 @@ import {
   FileCheck2,
   Filter,
   Instagram,
-  LifeBuoy,
   Search,
   Sparkles,
   X,
@@ -120,8 +119,8 @@ const footerSections = [
   {
     title: 'Sobre',
     links: [
-      { label: 'Sobre Nos', href: 'https://start.bet.br/page/about' },
-      { label: 'Jogo Responsavel', href: 'https://start.bet.br/page/responsible-gaming' },
+      { label: 'Sobre Nós', href: 'https://start.bet.br/page/about' },
+      { label: 'Jogo Responsável', href: 'https://start.bet.br/page/responsible-gaming' },
       { label: 'Regras do Jogo', href: 'https://start.bet.br/page/rules' },
       { label: 'Blog', href: 'https://startbetblog.com/' },
       { label: 'Politica de Privacidade', href: 'https://start.bet.br/page/kyc-and-privacy-policy' },
@@ -136,8 +135,8 @@ const footerSections = [
   {
     title: 'Informações',
     links: [
-      { label: 'Promocoes', href: 'https://start.bet.br/promotions' },
-      { label: 'Termos e Condicoes', href: 'https://start.bet.br/page/terms-and-conditions' },
+      { label: 'Promoções', href: 'https://start.bet.br/promotions' },
+      { label: 'Termos e Condições', href: 'https://start.bet.br/page/terms-and-conditions' },
       { label: 'Central de Ajuda', href: 'https://central-deajuda-sb.vercel.app/' },
     ],
   },
@@ -274,32 +273,31 @@ const openZendeskChat = () => {
             <img class="h-11 w-auto sm:h-12" :src="assetUrl('start-logo.png')" alt="Start" />
           </a>
 
-          <nav class="flex flex-wrap items-center gap-2 text-sm font-bold text-white/86">
+          <nav class="flex flex-wrap items-center gap-2 text-white/86">
             <a
-              class="inline-flex h-11 items-center gap-2 rounded-md border border-white/12 bg-white/8 px-4 transition hover:border-start-lemon/60 hover:bg-white/14 hover:text-white"
+              class="grid h-11 w-11 place-items-center rounded-md border border-white/12 bg-white/8 transition hover:border-start-lemon/60 hover:bg-white/14 hover:text-white"
               href="#artigos"
               aria-label="Ver artigos"
             >
-              <BookOpen class="h-4 w-4 text-start-lemon" aria-hidden="true" />
-              Artigos
-            </a>
-            <a
-              class="inline-flex h-11 items-center gap-2 rounded-md border border-white/12 bg-white/8 px-4 transition hover:border-start-lemon/60 hover:bg-white/14 hover:text-white"
-              href="#temas"
-              aria-label="Filtrar por temas"
-            >
-              <Filter class="h-4 w-4 text-start-lemon" aria-hidden="true" />
-              Temas
+              <BookOpen class="h-5 w-5 text-start-lemon" aria-hidden="true" />
             </a>
             <button
-              class="inline-flex h-11 items-center gap-2 rounded-md border border-start-lemon/50 bg-start-lemon px-4 text-start-deep shadow-soft transition hover:bg-start-lemonSoft"
+              class="grid h-11 w-11 place-items-center rounded-md border border-start-lemon/50 bg-start-lemon text-start-deep shadow-soft transition hover:bg-start-lemonSoft"
               type="button"
               aria-label="Abrir suporte"
               :aria-busy="isChatLoading"
               @click="openZendeskChat"
             >
-              <LifeBuoy class="h-4 w-4" aria-hidden="true" />
-              {{ isChatLoading ? 'Abrindo...' : 'Suporte' }}
+              <svg
+                class="h-5 w-5"
+                viewBox="0 0 1024 1024"
+                aria-hidden="true"
+              >
+                <path
+                  fill="currentColor"
+                  d="M512 220.8C351.1 220.8 220.8 351.1 220.8 512V568C220.8 586.6 205.8 601.6 187.2 601.6 168.6 601.6 153.6 586.6 153.6 568V512C153.6 314 314 153.6 512 153.6 710 153.6 870.4 314 870.4 512V713.7C870.4 781.8 815.2 836.9 747.1 836.9L592.6 836.8C581 856.8 559.3 870.4 534.4 870.4H489.6C452.5 870.4 422.4 840.3 422.4 803.2 422.4 766.1 452.5 736 489.6 736H534.4C559.3 736 581 749.6 592.6 769.6L747.2 769.7C778.1 769.7 803.2 744.7 803.2 713.7V512C803.2 351.1 672.9 220.8 512 220.8ZM355.2 444.8H377.6C402.4 444.8 422.4 464.8 422.4 489.6V646.4C422.4 671.2 402.4 691.2 377.6 691.2H355.2C305.8 691.2 265.6 651 265.6 601.6V534.4C265.6 485 305.8 444.8 355.2 444.8ZM668.8 444.8C718.2 444.8 758.4 485 758.4 534.4V601.6C758.4 651 718.2 691.2 668.8 691.2H646.4C621.6 691.2 601.6 671.2 601.6 646.4V489.6C601.6 464.8 621.6 444.8 646.4 444.8H668.8Z"
+                />
+              </svg>
             </button>
           </nav>
         </header>
@@ -366,10 +364,6 @@ const openZendeskChat = () => {
         </label>
 
         <div class="flex flex-wrap items-center gap-2" id="temas">
-          <span class="inline-flex h-10 items-center gap-2 text-sm font-bold text-start-surface">
-            <Filter class="h-4 w-4" aria-hidden="true" />
-            Temas
-          </span>
           <button
             v-for="category in categories"
             :key="category"
@@ -531,7 +525,7 @@ const openZendeskChat = () => {
           <article
             v-for="destination in destinationCards"
             :key="destination.title"
-            class="relative min-h-[360px] overflow-hidden rounded-lg border border-white/10 bg-start-surface shadow-soft"
+            class="relative min-h-[260px] overflow-hidden rounded-lg border border-white/10 bg-start-surface shadow-soft"
           >
             <img
               class="absolute inset-0 h-full w-full object-cover"
@@ -542,18 +536,18 @@ const openZendeskChat = () => {
               class="absolute inset-0 bg-gradient-to-r from-start-deep via-start-deep/82 to-start-deep/18"
               aria-hidden="true"
             ></div>
-            <div class="relative flex h-full max-w-md flex-col items-start justify-center p-8">
+            <div class="relative flex h-full max-w-md flex-col items-start justify-center p-6">
               <span class="rounded-full bg-start-lemon px-4 py-2 text-xs font-black uppercase tracking-[0.14em] text-start-deep">
                 {{ destination.eyebrow }}
               </span>
-              <h3 class="mt-7 text-5xl font-black uppercase leading-none text-start-sand sm:text-6xl">
+              <h3 class="mt-5 text-4xl font-black uppercase leading-none text-start-sand sm:text-5xl">
                 {{ destination.title }}
               </h3>
-              <p class="mt-5 text-base font-semibold leading-7 text-white/82">
+              <p class="mt-4 text-sm font-semibold leading-6 text-white/82 sm:text-base">
                 {{ destination.description }}
               </p>
               <a
-                class="mt-8 inline-flex h-14 items-center gap-3 rounded-md bg-start-lemon px-6 text-base font-black uppercase text-start-deep transition hover:bg-start-lemonSoft"
+                class="mt-6 inline-flex h-12 items-center gap-3 rounded-md bg-start-lemon px-5 text-sm font-black uppercase text-start-deep transition hover:bg-start-lemonSoft"
                 :href="destination.href"
                 target="_blank"
                 rel="noreferrer"
@@ -569,7 +563,35 @@ const openZendeskChat = () => {
 
     <footer class="bg-start-deep text-white">
       <div class="mx-auto max-w-7xl px-5 py-10 sm:px-8 lg:px-10">
-        <div class="grid gap-8 lg:grid-cols-[1.1fr_1fr]">
+        <div class="grid gap-8 border-b border-white/10 pb-8 lg:grid-cols-[0.8fr_1.2fr] lg:items-start">
+          <section class="flex flex-col items-start">
+            <img class="h-12 w-auto" :src="assetUrl('start-logo.png')" alt="Start" />
+
+            <p class="mt-5 max-w-sm text-sm font-medium leading-7 text-white/64">
+              Conteudo, canais e informacoes oficiais da StartBet reunidos em um so lugar.
+            </p>
+
+            <div class="mt-5 flex flex-wrap items-center gap-2">
+              <a
+                v-for="social in socialLinks"
+                :key="social.label"
+                class="grid h-10 w-10 place-items-center rounded-md border border-white/10 bg-white/8 text-white transition hover:border-start-lemon/70 hover:bg-start-lemon hover:text-start-deep"
+                href="https://www.instagram.com/startbetbr/"
+                :aria-label="social.label"
+              >
+                <component :is="social.icon" class="h-4 w-4" aria-hidden="true" />
+              </a>
+
+              <a
+                class="inline-flex h-10 items-center justify-center gap-2 rounded-md bg-black/28 px-4 text-sm font-bold text-white transition hover:bg-black/40"
+                href="#top"
+              >
+                <ArrowUp class="h-4 w-4" aria-hidden="true" />
+                Voltar ao topo
+              </a>
+            </div>
+          </section>
+
           <div class="grid gap-6 sm:grid-cols-3">
             <section
               v-for="section in footerSections"
@@ -593,52 +615,27 @@ const openZendeskChat = () => {
               </ul>
             </section>
           </div>
+        </div>
 
-          <section class="rounded-lg border border-white/10 bg-start-surface/42 p-6 shadow-soft">
-            <div class="flex flex-col gap-6 xl:flex-row xl:items-start xl:justify-between">
-              <div>
-                <img class="h-12 w-auto" :src="assetUrl('start-logo.png')" alt="Start" />
-                <div class="mt-5 flex flex-wrap gap-2">
-                  <a
-                    v-for="social in socialLinks"
-                    :key="social.label"
-                    class="grid h-10 w-10 place-items-center rounded-md border border-white/10 bg-white/8 text-white transition hover:border-start-lemon/70 hover:bg-start-lemon hover:text-start-deep"
-                    href="https://www.instagram.com/startbetbr/"
-                    :aria-label="social.label"
-                  >
-                    <component :is="social.icon" class="h-4 w-4" aria-hidden="true" />
-                  </a>
-                </div>
-              </div>
+        <section class="mt-6 grid gap-5 rounded-lg border border-white/10 bg-start-surface/28 p-5 md:grid-cols-[1fr_auto] md:items-center">
+          <div>
+            <p class="text-sm font-medium leading-7 text-white/64">
+              A Startbet e operada pela LBBR APOSTAS DE QUOTA FIXA S.A., empresa registrada sob
+              o CNPJ 56.441.713/0001-45, licenciada pela Secretaria de Premios e Apostas do
+              Ministerio da Fazenda no Brasil com a Autorizacao SPA/MF n 527, publicada em 14 de
+              marco de 2025.
+            </p>
 
-              <a
-                class="inline-flex h-10 items-center justify-center gap-2 rounded-md bg-black/28 px-4 text-sm font-bold text-white transition hover:bg-black/40"
-                href="#top"
-              >
-                <ArrowUp class="h-4 w-4" aria-hidden="true" />
-                Voltar ao topo
-              </a>
-            </div>
-
-            <div class="mt-7 grid gap-5 border-t border-white/10 pt-6 md:grid-cols-[1fr_auto]">
-              <p class="text-sm font-medium leading-7 text-white/64">
-                A Startbet e operada pela LBBR APOSTAS DE QUOTA FIXA S.A., empresa registrada sob
-                o CNPJ 56.441.713/0001-45, licenciada pela Secretaria de Premios e Apostas do
-                Ministerio da Fazenda no Brasil com a Autorizacao SPA/MF n 527, publicada em 14 de
-                marco de 2025.
-              </p>
-
-              <div class="inline-flex h-12 w-12 items-center justify-center rounded-full border-2 border-start-lemon text-lg font-black text-start-lemon">
-                18+
-              </div>
-            </div>
-
-            <p class="mt-5 text-sm font-black leading-6 text-white/70">
+            <p class="mt-3 text-sm font-black leading-6 text-white/70">
               Aposte com responsabilidade. Proibido para menores de 18 anos. Plataforma
               regulamentada. Apostas podem causar dependencia.
             </p>
-          </section>
-        </div>
+          </div>
+
+          <div class="inline-flex h-12 w-12 items-center justify-center rounded-full border-2 border-start-lemon text-lg font-black text-start-lemon">
+            18+
+          </div>
+        </section>
       </div>
     </footer>
 
